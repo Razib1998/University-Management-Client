@@ -34,7 +34,7 @@ const Sidebar = () => {
   return (
     <Sider
       breakpoint="lg"
-      collapsedWidth="50"
+      collapsedWidth="100"
       onBreakpoint={(broken) => {
         console.log(broken);
       }}
@@ -51,7 +51,7 @@ const Sidebar = () => {
           alignItems: "center",
         }}
       >
-        <h1>My University</h1>
+        <h1 style={{ paddingLeft: "40px" }}>My University</h1>
       </div>
       <Menu
         theme="dark"
