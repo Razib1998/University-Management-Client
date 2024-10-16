@@ -11,7 +11,7 @@ const FormSelect = ({ label, name, options }: TFormSelectProps) => {
   return (
     <Controller
       name={name}
-      render={({ field }) => (
+      render={({ field, fieldState: { error } }) => (
         <Form.Item label={label}>
           <Select
             size="large"
@@ -19,6 +19,7 @@ const FormSelect = ({ label, name, options }: TFormSelectProps) => {
             style={{ width: "100%" }}
             options={options}
           />
+          {error && <small style={{ color: "red" }}>{error?.message}</small>}
         </Form.Item>
       )}
     />
