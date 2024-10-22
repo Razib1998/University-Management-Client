@@ -18,7 +18,7 @@ const userManagementApi = basApi.injectEndpoints({
     //       params: params,
     //     };
     //   },
-    //   transformResponse: (response: TResponseRedux<TAcademicSemester[]>) => {
+    //   transformResponse: (response: TResponseRedux<[TAcademicSemester]>) => {
     //     return {
     //       data: response?.data,
     //       meta: response.meta,
