@@ -4,7 +4,7 @@ import { Controller } from "react-hook-form";
 type TFormSelectProps = {
   name: string;
   label: string;
-  options: { value: string; label: string; disabled?: boolean }[];
+  options: { value: string; label: string; disabled?: boolean }[] | undefined;
 };
 
 const FormSelect = ({ label, name, options }: TFormSelectProps) => {

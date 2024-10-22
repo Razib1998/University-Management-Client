@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FieldValues } from "react-hook-form";
 import FormWrapper from "../../../components/form/FormWrapper";
 import { Button, Col, Flex } from "antd";
@@ -7,13 +8,17 @@ import { useAddAcademicFacultyMutation } from "../../../redux/features/Admin/Aca
 import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { academicFacultySchema } from "../../../schemas/AcademicManagementSchema";
+import { TResponse } from "../../../Types/global";
+import { TCreateAcademicFaculty } from "../../../Types/academicManagementType";
 const CreateAcademicFaculty = () => {
   const [addAcademicFaculty] = useAddAcademicFacultyMutation();
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Loading....");
     try {
-      const res = await addAcademicFaculty(data);
-      console.log(res);
+      const res = (await addAcademicFaculty(
+        data
+      )) as TResponse<TCreateAcademicFaculty>;
+
       if (res.error) {
         toast.error(res.error.data?.message, { id: toastId });
       } else {
