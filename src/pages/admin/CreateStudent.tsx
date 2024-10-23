@@ -50,8 +50,10 @@ const studentDummyData = {
 const CreateStudent = () => {
   const [addStudent, { data, error }] = useAddStudentMutation(undefined);
   console.log({ data, error });
-  const { data: sData } = useGetAllAcademicSemesterQuery(undefined);
-  const { data: dData } = useGetAllAcademicDepartmentQuery(undefined);
+  const { data: sData, isLoading: sIsLoading } =
+    useGetAllAcademicSemesterQuery(undefined);
+  const { data: dData, isLoading: dIsLoading } =
+    useGetAllAcademicDepartmentQuery(undefined);
 
   const semesterOptions = sData?.data?.map((item) => ({
     value: item._id,
@@ -235,6 +237,7 @@ const CreateStudent = () => {
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <FormSelect
+                disabled={dIsLoading}
                 options={departmentOptions}
                 name="academicDepartment"
                 label="Academic Department"
@@ -242,6 +245,7 @@ const CreateStudent = () => {
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <FormSelect
+                disabled={sIsLoading}
                 options={semesterOptions}
                 name="admissionSemester"
                 label="Admission Semester"
