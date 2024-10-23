@@ -48,32 +48,34 @@ const CreateAcademicSemester = () => {
   };
 
   return (
-    <Flex justify="center" align="center">
-      <Col span={6}>
-        <FormWrapper
-          resolver={zodResolver(academicSemesterSchema)}
-          onSubmit={onSubmit}
-        >
-          <FormSelect
-            label="Semester Name"
-            name="name"
-            options={semesterOptions}
-          />
-          <FormSelect label="Year" name="year" options={yearOptions} />
-          <FormSelect
-            label="Start Month"
-            name="startMonth"
-            options={monthsOptions}
-          />
-          <FormSelect
-            label="End Month"
-            name="endMonth"
-            options={monthsOptions}
-          />
-          <Button htmlType="submit">Create Semester</Button>
-        </FormWrapper>
-      </Col>
-    </Flex>
+    <>
+      <Flex justify="center" align="center">
+        <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+          <FormWrapper
+            resolver={zodResolver(academicSemesterSchema)}
+            onSubmit={onSubmit}
+          >
+            <FormSelect
+              label="Semester Name"
+              name="name"
+              options={semesterOptions}
+            />
+            <FormSelect label="Year" name="year" options={yearOptions} />
+            <FormSelect
+              label="Start Month"
+              name="startMonth"
+              options={monthsOptions}
+            />
+            <FormSelect
+              label="End Month"
+              name="endMonth"
+              options={monthsOptions}
+            />
+            <Button htmlType="submit">Create Semester</Button>
+          </FormWrapper>
+        </Col>
+      </Flex>
+    </>
   );
 };
 

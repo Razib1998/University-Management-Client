@@ -7,7 +7,6 @@ const userManagementApi = basApi.injectEndpoints({
     getAllStudents: builder.query({
       query: (args) => {
         const params = new URLSearchParams();
-
         if (args) {
           args.forEach((item: TQueryParam) => {
             params.append(item.name, item.value as string);
@@ -23,9 +22,15 @@ const userManagementApi = basApi.injectEndpoints({
       transformResponse: (response: TResponseRedux<TStudent[]>) => {
         return {
           data: response?.data,
-          meta: response.meta,
+          meta: response?.meta,
         };
       },
+    }),
+    getSingleStudent: builder.query({
+      query: (id) => ({
+        url: `/students/${id}`,
+        method: "GET",
+      }),
     }),
     addStudent: builder.mutation({
       query: (data) => ({
@@ -34,8 +39,19 @@ const userManagementApi = basApi.injectEndpoints({
         body: data,
       }),
     }),
+    updateStudent: builder.mutation({
+      query: (options) => ({
+        url: `/students/${options.id}`,
+        method: "PATCH",
+        body: options.data,
+      }),
+    }),
   }),
 });
 
-export const { useAddStudentMutation, useGetAllStudentsQuery } =
-  userManagementApi;
+export const {
+  useAddStudentMutation,
+  useGetAllStudentsQuery,
+  useGetSingleStudentQuery,
+  useUpdateStudentMutation,
+} = userManagementApi;
