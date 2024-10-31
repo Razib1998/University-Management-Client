@@ -6,15 +6,23 @@ type TFormSelectProps = {
   label: string;
   options: { value: string; label: string; disabled?: boolean }[] | undefined;
   disabled?: boolean;
+  mode?: "multiple" | undefined;
 };
 
-const FormSelect = ({ label, name, options, disabled }: TFormSelectProps) => {
+const FormSelect = ({
+  label,
+  name,
+  options,
+  disabled,
+  mode,
+}: TFormSelectProps) => {
   return (
     <Controller
       name={name}
       render={({ field, fieldState: { error } }) => (
         <Form.Item label={label}>
           <Select
+            mode={mode}
             size="large"
             {...field}
             style={{ width: "100%" }}
