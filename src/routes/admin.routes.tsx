@@ -118,7 +118,7 @@ export const adminPaths = [
         element: <AllCourses />,
       },
       {
-        name: "Offer Courses",
+        name: "C. Offer Courses",
         path: "create-offer-courses",
         element: <CreateOfferedCourse />,
       },

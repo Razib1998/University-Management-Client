@@ -36,7 +36,7 @@ export const genders = ["Male", "Female", "Other"];
 export const status = ["UPCOMING", "ONGOING", "ENDED"];
 
 export const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
-
+const weekdays = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 export const genderOptions = genders.map((item) => ({
   value: item.toLowerCase(),
   label: item,
@@ -50,4 +50,9 @@ export const bloodGroupOptions = bloodGroups.map((item) => ({
 export const statusOptions = status.map((item) => ({
   value: item,
   label: item.toLowerCase(),
+}));
+
+export const weekDaysOptions = weekdays.map((item) => ({
+  value: item,
+  label: item,
 }));
