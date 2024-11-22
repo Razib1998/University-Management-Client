@@ -34,6 +34,12 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   if (result?.error?.status === 404) {
     toast.error(result?.error?.data?.message);
   }
+  if (result?.error?.status === 400) {
+    toast.error(result?.error?.data?.message);
+  }
+  if (result?.error?.status === 403) {
+    toast.error(result?.error?.data?.message);
+  }
   if (result?.error?.status === 401) {
     const res = await fetch("http://localhost:5001/api/v1/auth/refresh-token", {
       method: "POST",
