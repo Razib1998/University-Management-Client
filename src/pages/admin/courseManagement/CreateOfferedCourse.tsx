@@ -54,7 +54,7 @@ const CreateOfferedCourse = () => {
   const { data: facultiesData, isFetching: fetchingFaculties } =
     useGetFacultiesWithCourseQuery(courseId, { skip: !courseId });
 
-  const facultiesOptions = facultiesData?.data?.faculties?.map((item) => ({
+  const facultiesOptions = facultiesData?.data?.faculties?.map((item: any) => ({
     value: item._id,
     label: item.fullName,
   }));
