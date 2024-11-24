@@ -1,4 +1,4 @@
-import { Button, Row } from "antd";
+import { Button, Col, Flex, Row } from "antd";
 import { FieldValues } from "react-hook-form";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
@@ -52,10 +52,16 @@ const Login = () => {
   };
 
   return (
-    <Row justify="center" align="middle" style={{ height: "100vh" }}>
+    <Row justify="center" style={{ marginTop: "15%" }}>
       <FormWrapper onSubmit={onSubmit} defaultValues={defaultValues}>
-        <FormInput type="text" name="userId" label="ID:" />
-        <FormInput type="text" name="password" label="Password" />
+        <Flex vertical gap={8}>
+          <Col span={24}>
+            <FormInput type="text" name="userId" label="ID:" />
+          </Col>
+          <Col span={24}>
+            <FormInput type="text" name="password" label="Password" />
+          </Col>
+        </Flex>
         <Button htmlType="submit">Login</Button>
       </FormWrapper>
     </Row>
